@@ -66,6 +66,7 @@ extern {
 #[test]
 fn base_test() {
     unsafe {
+      // Error: (signal: 11, SIGSEGV: invalid memory reference)
       let mut my_ssh_session = ssh_new();
       ssh_free(&mut my_ssh_session);
     }
