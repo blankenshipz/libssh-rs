@@ -46,6 +46,7 @@ pub enum ssh_options_e {
   SSH_OPTIONS_HMAC_S_C
 }
 
+#[link(name = "libssh")]
 extern {
     pub fn ssh_new() -> ssh_session;
     pub fn ssh_free(session: *mut ssh_session) -> c_void;
@@ -66,7 +67,6 @@ extern {
 #[test]
 fn base_test() {
     unsafe {
-      // Error: (signal: 11, SIGSEGV: invalid memory reference)
       let mut my_ssh_session = ssh_new();
       ssh_free(&mut my_ssh_session);
     }
